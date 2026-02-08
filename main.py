@@ -14,7 +14,7 @@ dp = Dispatcher()
 
 @dp.message(CommandStart())
 async def start_command_handler(message: Message):
-    await message.answer('Привет! Это история советсткой и российской вычислительной техники! Рады тебя видеть! :)')
+    await message.answer('Коммит дев2.')
 
 
 async def main() -> None:
