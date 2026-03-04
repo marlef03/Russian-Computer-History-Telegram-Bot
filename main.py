@@ -1,27 +1,33 @@
 import asyncio
+import sys
+import logging
 from aiogram import Bot, Dispatcher
-from aiogram.filters import CommandStart
-from aiogram.types import Message
-from dotenv import load_dotenv
-from os import getenv
+from aiogram.client.default import DefaultBotProperties
+from aiogram.enums import ParseMode
+from src.handlers import router
+import src.config as cfg
 
-load_dotenv()
-
-TOKEN = getenv('TOKEN')
-
-dp = Dispatcher()
-
-
-@dp.message(CommandStart())
-async def start_command_handler(message: Message):
-    await message.answer('Привет! Это история советсткой и российской вычислительной техники! Рады тебя видеть! :)')
-
+logger = logging.getLogger(__name__)
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 async def main() -> None:
-    bot = Bot(token=TOKEN)
-    
-    await dp.start_polling(bot) 
+    bot = Bot(
+        token=cfg.TOKEN,
+        default=DefaultBotProperties(
+            parse_mode=ParseMode.MARKDOWN_V2
+        )
+    )
+    await bot.set_my_commands(cfg.BOT_COMMAND_LIST)
+
+    dp = Dispatcher()
+    dp.include_router(router)
+
+    logger.info('Bot is started')
+    await dp.start_polling(bot)
 
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        logger.info('Bot is stopped')

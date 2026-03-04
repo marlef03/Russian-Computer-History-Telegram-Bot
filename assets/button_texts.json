@@ -1,0 +1,94 @@
+{
+    "menu": {
+        "mode": {
+            "text": "📚 Выбрать режим изучения",
+            "cbd": "mode"
+        },
+        "test": {
+            "text": "📝 Решение тестов",
+            "cbd": "test"
+        },
+        "stats": {
+            "text": "📊 Вывод статистики",
+            "cbd": "stats"
+        },
+        "settings": {
+            "text": "⚙️ Настройки бота",
+            "cbd": "settings"
+        }
+    },
+    "mode": {
+        "general": {
+            "text": "📖 Изучение общей истории",
+            "cbd": "general"
+        },
+        "inventions": {
+            "text": "💡Собрание изобретений",
+            "cbd": "inventions_0"
+        },
+        "scientists": {
+            "text": "👤 Подборка выдающихся учёных",
+            "cbd": "scientists_0"
+        },
+        "back": {
+            "text": "↩️ Перейти в меню",
+            "cbd": "menu"
+        }
+    },
+    "general": {
+        "back": {
+            "text": "↩️ Вернуться к выбору режима",
+            "cbd": "mode"
+        }
+    },
+    "general_reading": {
+        "prev": {
+            "text": "◀️"
+        },
+        "page": {
+            "text": "{} / {}",
+            "cbd": "page_general"
+        },
+        "next": {
+            "text": "▶️"
+        },
+        "back": {
+            "text": "↩️ Выбрать раздел",
+            "cbd": "general"
+        }
+    },
+    "inventions": {
+        "prev": {
+            "text": "◀️"
+        },
+        "page": {
+            "text": "{} / {}",
+            "cbd": "page_inventions"
+        },
+        "next": {
+            "text": "▶️"
+        },
+        "back": {
+            "text": "↩️ Вернуться к выбору режима",
+            "cbd": "mode"
+        }
+    },
+    "test": {
+        "back": {
+            "text": "↩️ Перейти в меню",
+            "cbd": "menu"
+        }
+    },
+    "stats": {
+        "back": {
+            "text": "↩️ Перейти в меню",
+            "cbd": "menu"
+        }
+    },
+    "settings": {
+        "back": {
+            "text": "↩️ Перейти в меню",
+            "cbd": "menu"
+        }
+    }
+}
