@@ -10,7 +10,7 @@ import src.config as cfg
 logger = logging.getLogger(__name__)
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
-async def main() -> None:
+async def main():
     bot = Bot(
         token=cfg.TOKEN,
         default=DefaultBotProperties(

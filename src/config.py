@@ -1,3 +1,8 @@
+'''
+Module that stores configuration objects
+'''
+
+
 from dotenv import load_dotenv
 from os import getenv
 from pathlib import Path
@@ -7,6 +12,7 @@ from aiogram.types import BotCommand
 
 load_dotenv()
 TOKEN = getenv('TOKEN')
+PRELOAD_CHAT_ID = getenv('PRELOAD_CHAT_ID')
 
 BOT_COMMAND_LIST = [
     BotCommand(
@@ -34,8 +40,23 @@ BOT_COMMAND_LIST = [
         description='Настройки бота'
     )
 ]
+'''List of supported bot commands'''
 
 ASSETS_PATH = Path(__file__).parent.parent / 'assets'
+'''Path object that points to project's assets directory'''
+
+REPLIES: dict = None
+'''Dictionary that stores bot replies'''
+
+BUTTON_TEXT: dict = None
+'''Dictionary that stores text and callback data of inline buttons'''
+
+GENERAL_TEXTS: dict = None
+'''Dictionary that stores text and images used in general mode messages'''
+
+INVENTIONS_TEXTS: dict = None
+'''Dictionary that stores text and images used in inventions mode messages'''
+
 
 with open(str(ASSETS_PATH / 'replies.json'), encoding='utf-8') as f:
     REPLIES = json.load(f)

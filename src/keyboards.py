@@ -1,3 +1,8 @@
+'''
+Module that provides inline keyboards for messages
+'''
+
+
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import src.config as cfg
 
@@ -22,6 +27,7 @@ menu_keyboard = InlineKeyboardMarkup(
         )]
     ]
 )
+'''Keyboard used in menu message'''
 
 mode_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
@@ -43,7 +49,7 @@ mode_keyboard = InlineKeyboardMarkup(
         )]
     ]
 )
-
+'''Keyboard used in mode message'''
 
 general_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
@@ -60,9 +66,18 @@ general_keyboard = InlineKeyboardMarkup(
         )]
     ]
 )
+'''Keyboard used in general chapter choice message'''
 
 
 def get_general_reading_keyboard(chapter: int, page: int) -> list[list[InlineKeyboardButton]]:
+    '''
+    Function that generates keyboard for general mode
+
+    :param chapter: current chapter
+    :param page: current page
+    :returns: 2D list representing inline keyboard used in general mode
+    '''
+
     return InlineKeyboardMarkup(
         inline_keyboard=[
             ([
@@ -93,6 +108,13 @@ def get_general_reading_keyboard(chapter: int, page: int) -> list[list[InlineKey
 
 
 def get_inventions_keyboard(page: int) -> list[list[InlineKeyboardButton]]:
+    '''
+    Function that generates keyboard for inventions mode
+
+    :param page: current page
+    :returns: 2D list representing inline keyboard used in inventions mode
+    '''
+
     return InlineKeyboardMarkup(
         inline_keyboard=[
             ([
@@ -121,7 +143,6 @@ def get_inventions_keyboard(page: int) -> list[list[InlineKeyboardButton]]:
         ]
     )
 
-
 test_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(
@@ -130,6 +151,7 @@ test_keyboard = InlineKeyboardMarkup(
         )]
     ]
 )
+'''Keyboard used in test message'''
 
 stats_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
@@ -139,6 +161,7 @@ stats_keyboard = InlineKeyboardMarkup(
         )]
     ]
 )
+'''Keyboard used in stats message'''
 
 settings_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
@@ -148,3 +171,4 @@ settings_keyboard = InlineKeyboardMarkup(
         )]
     ]
 )
+'''Keyboard used in settings message'''
