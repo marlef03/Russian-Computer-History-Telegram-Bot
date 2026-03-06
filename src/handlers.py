@@ -206,8 +206,6 @@ async def process_inventions(callback_query: CallbackQuery):
 @router.callback_query(F.data.startswith('scientists'))
 async def process_scientists(callback_query: CallbackQuery):
     '''
-    (!) Not finished
-
     Function that sends scientists mode message
 
     :param callback_query: CallbackQuery object
@@ -221,7 +219,13 @@ async def process_scientists(callback_query: CallbackQuery):
         f'in scientists mode'
     )
 
-    await callback_query.message.edit_text('На стадии разработки')
+    await callback_query.message.edit_media(
+        InputMediaPhoto(
+            media=cfg.SCIENTISTS_TEXTS[page]['image_id'],
+            caption=cfg.SCIENTISTS_TEXTS[page]['text']
+        ),
+        reply_markup=kbs.get_scientists_keyboard(page)
+    )
 
     await callback_query.answer()
 

@@ -73,6 +73,22 @@
             "cbd": "mode"
         }
     },
+    "scientists": {
+        "prev": {
+            "text": "◀️"
+        },
+        "page": {
+            "text": "{} / {}",
+            "cbd": "page_scientists"
+        },
+        "next": {
+            "text": "▶️"
+        },
+        "back": {
+            "text": "↩️ Вернуться к выбору режима",
+            "cbd": "mode"
+        }
+    },
     "test": {
         "back": {
             "text": "↩️ Перейти в меню",

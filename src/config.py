@@ -51,11 +51,14 @@ REPLIES: dict = None
 BUTTON_TEXT: dict = None
 '''Dictionary that stores text and callback data of inline buttons'''
 
-GENERAL_TEXTS: dict = None
-'''Dictionary that stores text and images used in general mode messages'''
+GENERAL_TEXTS: list = None
+'''Object that stores text and images used in general mode messages'''
 
-INVENTIONS_TEXTS: dict = None
-'''Dictionary that stores text and images used in inventions mode messages'''
+INVENTIONS_TEXTS: list = None
+'''Object that stores text and images used in inventions mode messages'''
+
+SCIENTISTS_TEXTS: list = None
+'''Object that stores text and images used in scientists mode messages'''
 
 
 with open(str(ASSETS_PATH / 'replies.json'), encoding='utf-8') as f:
@@ -69,3 +72,6 @@ with open(str(ASSETS_PATH / 'general_texts.json'), encoding='utf-8') as f:
 
 with open(str(ASSETS_PATH / 'inventions_texts.json'), encoding='utf-8') as f:
     INVENTIONS_TEXTS = json.load(f)
+
+with open(str(ASSETS_PATH / 'scientists_texts.json'), encoding='utf-8') as f:
+    SCIENTISTS_TEXTS = json.load(f)

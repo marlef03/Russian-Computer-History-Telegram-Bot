@@ -143,6 +143,42 @@ def get_inventions_keyboard(page: int) -> list[list[InlineKeyboardButton]]:
         ]
     )
 
+def get_scientists_keyboard(page: int) -> list[list[InlineKeyboardButton]]:
+    '''
+    Function that generates keyboard for scientists mode
+
+    :param page: current page
+    :returns: 2D list representing inline keyboard used in scientists mode
+    '''
+
+    return InlineKeyboardMarkup(
+        inline_keyboard=[
+            ([
+                InlineKeyboardButton(
+                    text=cfg.BUTTON_TEXT['scientists']['prev']['text'],
+                    callback_data=f'scientists_{page - 1}'
+                )
+            ] if page > 0 else []) +
+            [
+                InlineKeyboardButton(
+                    text=cfg.BUTTON_TEXT['scientists']['page']['text']
+                      .format(page + 1, len(cfg.SCIENTISTS_TEXTS)),
+                    callback_data=cfg.BUTTON_TEXT['scientists']['page']['cbd']
+                )
+            ] + 
+            ([
+                InlineKeyboardButton(
+                    text=cfg.BUTTON_TEXT['scientists']['next']['text'],
+                    callback_data=f'scientists_{page + 1}'
+                )
+            ] if page + 1 < len(cfg.SCIENTISTS_TEXTS) else []),
+            [InlineKeyboardButton(
+                text=cfg.BUTTON_TEXT['scientists']['back']['text'],
+                callback_data=cfg.BUTTON_TEXT['scientists']['back']['cbd']
+            )]
+        ]
+    )
+
 test_keyboard = InlineKeyboardMarkup(
     inline_keyboard=[
         [InlineKeyboardButton(

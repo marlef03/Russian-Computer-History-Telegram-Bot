@@ -54,11 +54,30 @@ async def main():
         logger.info(f'Processed inventions page {page}')
         cfg.INVENTIONS_TEXTS[page]['image_id'] = info.photo[-1].file_id
 
+    for page in range(len(cfg.SCIENTISTS_TEXTS)):
+
+        while True:
+            try:
+                info = await bot.send_photo(
+                    cfg.PRELOAD_CHAT_ID,
+                    FSInputFile(cfg.ASSETS_PATH / 'images' / 'scientists' /
+                    cfg.SCIENTISTS_TEXTS[page]['image'])
+                )
+                break
+            except TelegramRetryAfter as e:
+                await asyncio.sleep(e.retry_after)
+
+        logger.info(f'Processed scientists page {page}')
+        cfg.SCIENTISTS_TEXTS[page]['image_id'] = info.photo[-1].file_id
+
     with open(str(cfg.ASSETS_PATH / 'general_texts.json'), 'w', encoding='utf-8') as f:
         json.dump(cfg.GENERAL_TEXTS, f, indent=2, ensure_ascii=False)
 
     with open(str(cfg.ASSETS_PATH / 'inventions_texts.json'), 'w', encoding='utf-8') as f:
         json.dump(cfg.INVENTIONS_TEXTS, f, indent=2, ensure_ascii=False)
+
+    with open(str(cfg.ASSETS_PATH / 'scientists_texts.json'), 'w', encoding='utf-8') as f:
+        json.dump(cfg.SCIENTISTS_TEXTS, f, indent=2, ensure_ascii=False)
 
     logger.info('Photo preload is done')
 
